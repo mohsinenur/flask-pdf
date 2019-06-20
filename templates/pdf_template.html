@@ -4,8 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="pdfkit-page-size" content="Letter"/>
     <title>Blood</title>
     <style>
+        body {
+            font-size:12px;
+        }
+
         table {
             font-family: arial, sans-serif;
             border-collapse: collapse;
@@ -31,9 +36,21 @@
                 <th>Name</th>
                 <th>Email</th>
                 <th>Phone</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
             </tr>
             {% for item in all_employee.data %}
             <tr>
+                <td>{{ item.name }}</td>
+                <td>{{ item.email }}</td>
+                <td>{{ item.contact_no }}</td>
+                <td>{{ item.name }}</td>
+                <td>{{ item.email }}</td>
+                <td>{{ item.contact_no }}</td>
                 <td>{{ item.name }}</td>
                 <td>{{ item.email }}</td>
                 <td>{{ item.contact_no }}</td>
