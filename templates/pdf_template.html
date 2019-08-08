@@ -29,8 +29,9 @@
     </style>
 </head>
 <body>
+    {% include 'includes/_flashmsg.html' %}
     {% if all_employee.data %}
-        <h3>Here is employee list: </h3>
+        <h3>Here is {{ blood_name }} employee list: </h3>
         <table>
             <tr>
                 <th>Name</th>

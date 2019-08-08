@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="pdfkit-page-size" content="Letter"/>
+    <title>Bank Report</title>
+    <style>
+        table.responseTable tr {
+            font-size: 11px; 
+        }
+        table.responseTable tr td, table.responseTable tr th {
+            page-break-inside: avoid !important;
+        }
+    </style>
+</head>
+<body>
+    {% if response %}
+    <h1>{{ response.report_name }}</h1>
+    <table class="responseTable" width="100%" border="1" cellspacing="0" cellpadding="5" style="border-collapse: collapse;">
+        <tr>
+            <th>Sl.</th>
+            <th>Date</th>
+            <th>Account No.</th>
+            <th>Bill No.</th>
+            <th>Branch</th>
+            <th>Reference No.</th>
+            <th>Bill Amount</th>
+            <th>Vat</th>
+            <th>Stamp</th>
+            <th>Total Amount</th>
+            <th>Status</th>
+            <th>Payment Type</th>
+            <th>Cheque</th>
+            <th>Batch</th>
+            <th>Bill Account</th>
+            <th>Vat Account</th>
+            <th>Security Account</th>
+            <th>Teller</th>
+            <th>Authorized By</th>
+            <th>Authorized Date</th>
+        </tr>
+        {% for item in response.all_data %}
+        <tr>
+            <td>{{ loop.index }}</td>
+            <td>{{ item.new_request_date }}</td>
+            <td>{{ item.account_no }}</td>
+            <td>{{ item.bill_no }}</td>
+            <td>{{ item.branch_name }}</td>
+            <td>{{ item.ref_id }}</td>
+            <td>{{ item.bill_amount }}</td>
+            <td>{{ item.vat_amount }}</td>
+            <td>{{ item.stamp_amount }}</td>
+            <td>{{ item.total_amount }}</td>
+            <td>{{ item.status }}</td>
+            <td>{{ item.payment_type }}</td>
+            <td>{{ item.cheque_no }}</td>
+            <td>{{ item.batchId }}</td>
+            <td>{{ item.bill_account }}</td>
+            <td>{{ item.vat_account }}</td>
+            <td>{{ item.other1_account }}</td>
+            <td>{{ item.teller_name }}</td>
+            <td>{{ item.checker_name }}</td>
+            <td>{{ item.authorized_date }}</td>
+        </tr>
+        {% endfor %}
+    {% else %}
+    <h1>No data found!</h1>
+    {% endif %}
+    </table>
+</body>
+</html>
